@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MULK</title>
+
+<style>
+
+body {
+
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  padding: 20px;
+
+  max-width: 500px;
+
+  margin: auto;
+
+}
+
+.card {
+
+  border: 1px solid #ddd;
+
+  border-radius: 12px;
+
+  padding: 15px;
+
+  margin-bottom: 15px;
+
+}
+
+button {
+
+  font-size: 20px;
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+}
+
+h1 {
+
+  text-align: center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>MULK</h1>
+
+<div class="card">
+
+<h2>💪 Daily Fitness</h2>
+
+<p>Pull-ups: <span id="pullups">0</span> / 15</p>
+
+<button onclick="addRep('pullups')">+1</button>
+
+<p>Push-ups: <span id="pushups">0</span> / 50</p>
+
+<button onclick="addRep('pushups')">+1</button>
+
+<p>Crunches: <span id="crunches">0</span> / 50</p>
+
+<button onclick="addRep('crunches')">+1</button>
+
+</div>
+
+<div class="card">
+
+<h2>🍎 Nutrition</h2>
+
+<p>Coming next...</p>
+
+</div>
+
+<script>
+
+let data = JSON.parse(localStorage.getItem("mulk")) || {
+
+pullups:0,
+
+pushups:0,
+
+crunches:0
+
+};
+
+function update(){
+
+document.getElementById("pullups").innerHTML=data.pullups;
+
+document.getElementById("pushups").innerHTML=data.pushups;
+
+document.getElementById("crunches").innerHTML=data.crunches;
+
+}
+
+function addRep(type){
+
+data[type]++;
+
+localStorage.setItem("mulk",JSON.stringify(data));
+
+update();
+
+}
+
+update();
+
+</script>
+
+</body>
+
+</html>
