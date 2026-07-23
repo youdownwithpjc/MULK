@@ -1,13 +1,8 @@
 let data = JSON.parse(localStorage.getItem("mulk")) || {
-
   pullups:0,
-
   pushups:0,
-
   crunches:0,
-
   foods:[]
-
 };
 
 function save(){
